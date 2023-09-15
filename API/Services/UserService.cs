@@ -2,15 +2,14 @@
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using ApiJwt.Dtos;
-using ApiJwt.Helpers;
-using Domain.Entities;
-using Domain.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using API.Helpers;
+using Dominio.Interfaces;
+using API.Dtos;
 
-namespace ApiJwt.Services;
+namespace API.Services;
 
 public class UserService : IUserService
 {
@@ -226,5 +225,8 @@ public class UserService : IUserService
         return jwtSecurityToken;
     }
 
+    private class User
+    {
+    }
 }
- */
+  */

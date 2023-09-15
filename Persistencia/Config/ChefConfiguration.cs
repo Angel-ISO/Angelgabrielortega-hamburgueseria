@@ -5,25 +5,32 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistencia.Config;
 
-public class RolConfiguration : IEntityTypeConfiguration<Rol>
+public class ChefConfiguration : IEntityTypeConfiguration<Chef>
 {
-    public void Configure(EntityTypeBuilder<Rol> builder)
+    public void Configure(EntityTypeBuilder<Chef> builder)
     {
 
-            builder.ToTable("Rol");
+            builder.ToTable("Chefs");
 
        
             builder.Property(p => p.Id)
             .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn)
-            .HasColumnName("Id_Rol")
+            .HasColumnName("Id_Chef")
             .HasColumnType("int")
             .IsRequired();
 
+
+
             builder.Property(p => p.Nombre)
-            .HasColumnName("NameRol")
+            .HasColumnName("nombrechef")
             .HasColumnType("varchar")
             .HasMaxLength(200)
             .IsRequired();
 
+             builder.Property(p => p.Especialidad)
+            .HasColumnName("especialidad")
+            .HasColumnType("varchar")
+            .HasMaxLength(200)
+            .IsRequired();
     }
 }

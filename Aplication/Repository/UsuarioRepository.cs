@@ -4,7 +4,7 @@ using Dominio.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Persistencia;
 
-namespace Aplicacion.Repository;
+namespace Aplication.Repository;
 
 public class UsuarioRepository : GenericRepository<Usuario>, IUsuario
 {

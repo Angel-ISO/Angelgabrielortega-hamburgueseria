@@ -23,7 +23,7 @@ builder.Services.ConfigureApiVersioning();
 builder.Services.ConfigureRateLimiting();
 builder.Services.ConfigureCors();
 builder.Services.AddAplicacionServices();
-builder.Services.AddJwt(builder.Configuration);
+//builder.Services.AddJwt(builder.Configuration);
 builder.Services.AddDbContext<PAppContext>(options =>
 {
     string connectionString = builder.Configuration.GetConnectionString("ConexMysql");

@@ -1,4 +1,4 @@
-using System;
+/* using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,4 +11,4 @@ namespace API.Services;
         Task<string> RegisterAsync(RegisterDto model);
         Task<DatosUsuarioDto> GetTokenAsync(LoginDto model);
         Task<string> AddRoleAsync(AddRoleDto model);
-    }
+    } */

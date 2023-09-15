@@ -2,7 +2,7 @@ using Dominio.Entities;
 using Dominio.Interfaces;
 using Persistencia;
 
-namespace Aplicacion.Repository;
+namespace Aplication.Repository;
 
     public class RolRepository:GenericRepository<Rol>,IRol
     {

@@ -1,7 +1,6 @@
 
 using System.Text;
 using API.Helpers;
-using API.Services;
 using Aplicacion.UnitOfWork;
 using AspNetCoreRateLimit;
 using Dominio.Entities;
@@ -28,7 +27,8 @@ namespace API.Extensions
         public static void AddAplicacionServices(this IServiceCollection services)
         {
             services.AddScoped<IPasswordHasher<Usuario>, PasswordHasher<Usuario>>();
-            services.AddScoped<IUserService, UserService>();
+            services.AddAutoMapper(typeof(ApplicationServiceExtension));
+           // services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
@@ -53,8 +53,8 @@ namespace API.Extensions
            new RateLimitRule
            {
              Endpoint = "*",
-             Period  ="10s",
-             Limit = 2
+             Period  ="20s",
+             Limit = 4
            }
          };
     });
@@ -77,7 +77,7 @@ namespace API.Extensions
     });
   }
 
-        public static void AddJwt(this IServiceCollection services, IConfiguration configuration)
+       /*  public static void AddJwt(this IServiceCollection services, IConfiguration configuration)
         {
             //Configuration from AppSettings
             services.Configure<JWT>(configuration.GetSection("JWT"));
@@ -104,7 +104,7 @@ namespace API.Extensions
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Key"]))
                     };
                 });
-        }
+        } */
 
-    }
+    } 
 }

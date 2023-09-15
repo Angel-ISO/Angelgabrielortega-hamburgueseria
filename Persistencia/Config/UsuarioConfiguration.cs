@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Persistencia.Data.Configuration
+namespace Persistencia.Config
 {
     public class UserConfiguration : IEntityTypeConfiguration<Usuario>
     {
