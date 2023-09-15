@@ -1,5 +1,6 @@
 {
     "conventionalCommits.scopes": [
-        "base para esqueleto(inico)"
+        "base para esqueleto(inico)",
+        "proyecto hecho"
     ]
 }
