@@ -16,14 +16,33 @@ namespace Aplication.Repository;
     }
     
 
-      public async Task<IEnumerable<Hamburguesa>> GetHamburguesaVegetariana(string tipo) =>
+      /* public async Task<IEnumerable<Hamburguesa>> GetHamburguesaVegetariana(string tipo) =>
                     await _context.Hamburguesas
-                    .Where(h => h.Categoria.Equals("vegetariana")).ToListAsync();
+                    .Where(h => h.Categoria.Equals("vegetariana")).ToListAsync(); */
 
 
-                     public async Task<IEnumerable<Hamburguesa>> GetHamburguesaIntegral(string tipo) =>
-                    await _context.Hamburguesas
-                    .Where(h => h.Ingredientes.Equals("panintegral")).ToListAsync();
+
+// manera correcta de hacerlo
+public async Task<IEnumerable<Hamburguesa>> GetHamburguesaVegetariana(string tipo)
+{
+    if (string.IsNullOrEmpty(tipo))
+    {
+        throw new ArgumentException("El parámetro 'tipo' no puede ser nulo o vacío.");
+    }
+
+    var hamburguesasVegetarianas = await _context.Hamburguesas
+        .Where(h => h.Categoria.Equals("vegetariana") && h.Categoria.Equals(tipo))
+        .ToListAsync();
+
+    return hamburguesasVegetarianas;
 }
+
+
+
+             //esta me quedo mal
+            public async Task<IEnumerable<Hamburguesa>> GetHamburguesaIntegral(string tipo) =>
+            await _context.Hamburguesas
+            .Where(h => h.Ingredientes.Equals("panintegral")).ToListAsync();
+    }
 
 

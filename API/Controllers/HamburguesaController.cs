@@ -79,4 +79,30 @@ namespace API.Controllers;
         await _unitofwork.SaveAsync();
         return NoContent();
     }
+
+
+
+
+   [HttpGet("vegetarianas")]
+   [ProducesResponseType(StatusCodes.Status200OK)]
+   [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<IActionResult> GetHamburguesasVegetarianas(string tipo)
+    {
+        try
+        {
+            var hamburguesasVegetarianas = await _unitofwork.Hamburguesas.GetHamburguesaVegetariana(tipo);
+            return Ok(hamburguesasVegetarianas);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Error: {ex.Message}");
+        }
+    }
+
+
+
+
+
+
+
 }
